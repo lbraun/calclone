@@ -3,7 +3,7 @@
  */
 function transferNewEvents() {
   var staffCalendarName = "Events at BHFH (staff version)"
-  var housieCalendarName = "Test BHFH Public"
+  var housieCalendarName = "BHFH Resident Calendar"
   var originCalendar = CalendarApp.getCalendarsByName(staffCalendarName).pop();
   var destinationCalendar = CalendarApp.getCalendarsByName(housieCalendarName).pop();
   var copiedTag = "[COPIED]";
@@ -42,15 +42,6 @@ function makePublicCopy(origCal, destCal, origEvent, publicDescription) {
   var desc = publicDescription;
   desc += '\n\nCopied from "' + origCal.getName() + '" on ' + today.toLocaleDateString() + '.';
   var loc = origEvent.getLocation();
-
-  if (origEvent.isRecurringEvent()) {
-    var origEventSeries = origEvent.getEventSeries();
-    var origRecurrence
-    var eventSeries = destCal.createEventSeries(title, start, end, recurrance, {
-        description : desc,
-        location : loc
-    });
-  }
 
   var event = destCal.createEvent(title, start, end, {
       description : desc,
