@@ -26,7 +26,7 @@ function transferNewEvents() {
         publicDescription = descriptionParts[1].trim();
       }
       makePublicCopy(originCalendar, destinationCalendar, event, publicDescription);
-      // event.setDescription(desc + " " + copiedTag);
+      event.setDescription(desc + " " + copiedTag);
     }
   }
 };
@@ -39,7 +39,6 @@ function makePublicCopy(origCal, destCal, origEvent, publicDescription) {
   var title = origEvent.getTitle();
   var start = origEvent.getStartTime();
   var end = origEvent.getEndTime();
-  //var desc = origEvent.getDescription().split("PUBLIC: ")[1];
   var desc = publicDescription;
   desc += '\n\nCopied from "' + origCal.getName() + '" on ' + today.toLocaleDateString() + '.';
   var loc = origEvent.getLocation();
