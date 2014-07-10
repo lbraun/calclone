@@ -35,12 +35,15 @@ function transferNewEvents() {
  * Copies the given event without the description field.
  */
 function makePublicCopy(origCal, destCal, origEvent, publicDescription) {
+  var includeCopyInformation = false;
   var today = new Date();
   var title = origEvent.getTitle();
   var start = origEvent.getStartTime();
   var end = origEvent.getEndTime();
   var desc = publicDescription;
-  desc += '\n\nCopied from "' + origCal.getName() + '" on ' + today.toLocaleDateString() + '.';
+  if (includeCopyInformation) {
+    desc += '\n\nCopied from "' + origCal.getName() + '" on ' + today.toLocaleDateString() + '.';
+  }
   var loc = origEvent.getLocation();
 
   var event = destCal.createEvent(title, start, end, {
