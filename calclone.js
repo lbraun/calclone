@@ -9,7 +9,7 @@ function transferNewEvents() {
   var copiedTag = "[COPIED]";
   var privateTag = "[PRIVATE]";
   var publicDescriptionTag = "[PUBLIC AFTER THIS]";
-  var numberOfDaysToCopy = 2;
+  var numberOfDaysToCopy = 180;
   var today = new Date();
   var startDate = today;
   var endDate = new Date()
